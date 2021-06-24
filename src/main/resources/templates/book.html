@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Книги</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+    <body>
+        <h1>Список книг:</h1>
+
+        <div th:if="${div}">
+            <p>Список книг пуст</p>
+        </div>
+
+        <div th:if="${not div}">
+            <table>
+                <tr>
+                    <th>Название</th>
+                    <th>Автор</th>
+                    <th>Количество страниц</th>
+                </tr>
+                <tr th:each="book: ${books}">
+                    <td th:text="${book.name}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.size}"></td>
+                </tr>
+            </table>
+        </div>
+
+        <a href="/book/add">Добавить книгу</a>
+        <a href="/book/delete">Удалить книгу</a>
+    </body>
+</html>

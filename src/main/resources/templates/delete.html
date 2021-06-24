@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Удалить книгу</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Удалить книгу</h1>
+
+    <table>
+        <tr>
+            <th>Удалить</th>
+            <th>Название</th>
+            <th>Автор</th>
+            <th>Количество страниц</th>
+        </tr>
+        <tr th:each="book: ${books}">
+            <td><a th:href="@{/book/delete?name={bookId}(bookId=${book.name})}">+</a></td>
+            <td th:text="${book.name}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.size}"></td>
+        </tr>
+    </table>
+
+    <a href="/book">Вернуться к списку</a>
+</body>
+</html>
